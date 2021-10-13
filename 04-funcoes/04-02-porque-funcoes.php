@@ -31,9 +31,11 @@ function totalAPagar($conta, $cliente)
 
     $gorjeta = in_array($cliente, $clientes_fieis) ? 3 : 5;
 
-    $impostos = ($conta / 100 * 3);
+    $conta_com_gorjeta = $conta + ($conta / 100 * $gorjeta);
 
-    $totalAPagar = $conta + $impostos + ($conta / 100 * $gorjeta);
+    $impostos = ($conta_com_gorjeta / 100 * 3);
+
+    $totalAPagar = $impostos + $conta_com_gorjeta;
 
     return $totalAPagar;
 }
